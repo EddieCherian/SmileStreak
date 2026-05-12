@@ -1,5 +1,3 @@
-import { getAnalytics, logEvent } from "firebase/analytics";
-
 // Import Firebase core
 import { initializeApp } from "firebase/app";
 
