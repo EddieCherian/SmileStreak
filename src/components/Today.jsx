@@ -429,7 +429,6 @@ const daysUntilVisit = getDaysUntilNextVisit();
 
 if (translating || !txReady) {
 return (
-
 <section className="space-y-6 pb-8">
 <div className="bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-500 text-white rounded-3xl p-6 shadow-xl relative overflow-hidden">
 <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16" />
@@ -453,7 +452,6 @@ return (
 }
 
 return (
-
 <section className="space-y-5 pb-8">
   {copied && (
     <div className="fixed top-5 left-1/2 -translate-x-1/2 z-50" style={{animation:"fadeIn .22s ease"}}>
@@ -464,7 +462,6 @@ return (
   )}
 
 {showCompletion && (
-
 <div className="fixed inset-0 bg-blue-900/25 backdrop-blur-sm flex items-center justify-center z-50" style={{animation:"fadeIn .22s ease"}}>
 <div className="bg-white rounded-3xl px-10 py-9 text-center shadow-2xl border border-blue-100" style={{animation:"bounceIn .45s cubic-bezier(.22,1,.36,1)"}}>
 <div className="text-6xl mb-4">🎉</div>
@@ -490,7 +487,6 @@ return (
   `}</style>
 
 {/* ── HERO HEADER ── */}
-
   <div className="bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-500 text-white rounded-3xl p-6 shadow-xl relative overflow-hidden">
     <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16" />
     <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12" />
@@ -516,7 +512,6 @@ return (
   </div>
 
 {/* ── STATS ROW ── */}
-
   <div className="grid grid-cols-4 gap-3">
     {[
       { emoji:"🔥", val:`${current}d`,          labelKey:"Streak",  from:"from-orange-50", border:"border-orange-100", text:"text-orange-600" },
@@ -533,7 +528,6 @@ return (
   </div>
 
 {/* ── WEEKLY CHART ── */}
-
   <div className="bg-white rounded-3xl p-5 shadow-lg border border-blue-100">
     <div className="flex items-center gap-2 mb-4">
       <TrendingUp className="w-4 h-4 text-blue-600" />
@@ -556,7 +550,6 @@ return (
 
 {/* ── RECOVERY NOTICE ── */}
 {isRecoveryDay && (
-
 <div className="bg-amber-50 border-2 border-amber-200 rounded-2xl p-4 flex items-center gap-3">
 <div className="w-10 h-10 bg-amber-400 rounded-xl flex items-center justify-center flex-shrink-0">
 <span className="text-xl">🔄</span>
@@ -569,7 +562,6 @@ return (
 )}
 
 {/* ── DAILY TASKS ── */}
-
   <div className="bg-white rounded-3xl p-5 shadow-lg border border-blue-100 space-y-3">
     <div className="flex items-center gap-4 mb-2">
       <div className="relative w-14 h-14 flex-shrink-0">
@@ -605,8 +597,6 @@ return (
       </button>
     </div>
 
-```
-
 {["morning","night"].map(task => {
 const isDone = todayData[task];
 const isRunning = activeTimer === task;
@@ -616,21 +606,20 @@ return (
 onClick={() => {
 if (isDone) toggleTask(task);
 else if (timerEnabled) {
-// ── ANALYTICS: Timer started ──
 track("timer_started", { task });
 setActiveTimer(task);
 setTimeLeft(BRUSH_TIME);
 }
 else toggleTask(task);
 }}>
-<div className={relative overflow-hidden rounded-2xl border-2 p-4 transition-all duration-200 ${ isDone ? "bg-gradient-to-r from-blue-50 to-cyan-50 border-blue-200" : isRunning ? "bg-white border-blue-400 shadow-lg shadow-blue-100" : "bg-gradient-to-r from-gray-50 to-blue-50 border-gray-200 hover:border-blue-300 hover:shadow-md" }}>
+<div className={`relative overflow-hidden rounded-2xl border-2 p-4 transition-all duration-200 ${ isDone ? "bg-gradient-to-r from-blue-50 to-cyan-50 border-blue-200" : isRunning ? "bg-white border-blue-400 shadow-lg shadow-blue-100" : "bg-gradient-to-r from-gray-50 to-blue-50 border-gray-200 hover:border-blue-300 hover:shadow-md" }`}>
 {isRunning && (
 <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-cyan-50 origin-left"
-style={{transform:scaleX(${fillPct/100}),transition:"transform 1s linear"}} />
+style={{transform:`scaleX(${fillPct/100})`,transition:"transform 1s linear"}} />
 )}
 <div className="relative flex items-center justify-between gap-3">
 <div className="flex items-center gap-3">
-<div className={w-11 h-11 rounded-2xl flex items-center justify-center text-2xl ${ task === "morning" ? "bg-gradient-to-br from-yellow-100 to-orange-100" : "bg-gradient-to-br from-indigo-100 to-purple-100" }}>
+<div className={`w-11 h-11 rounded-2xl flex items-center justify-center text-2xl ${ task === "morning" ? "bg-gradient-to-br from-yellow-100 to-orange-100" : "bg-gradient-to-br from-indigo-100 to-purple-100" }`}>
 {task === "morning" ? "🪥" : "🌙"}
 </div>
 <div>
@@ -638,7 +627,7 @@ style={{transform:scaleX(${fillPct/100}),transition:"transform 1s linear"}} />
 {task === "morning" ? T("Morning Brushing") : T("Night Brushing")}
 </p>
 <p className="text-xs text-gray-500 mt-0.5">
-{isRunning ? 🔄 ${T("Brush in circular motions…")} : isDone ? ✅ ${T("Completed")} : ⏱️ ${T("2 minutes recommended")}}
+{isRunning ? `🔄 ${T("Brush in circular motions…")}` : isDone ? `✅ ${T("Completed")}` : `⏱️ ${T("2 minutes recommended")}`}
 </p>
 </div>
 </div>
@@ -662,7 +651,6 @@ style={{transform:scaleX(${fillPct/100}),transition:"transform 1s linear"}} />
 })}
 
 <button className="press w-full text-left group" onClick={() => toggleTask("floss")}>
-
 <div className={`rounded-2xl border-2 p-4 transition-all duration-200 ${
     todayData.floss
       ? "bg-gradient-to-r from-blue-50 to-cyan-50 border-blue-200"
@@ -693,23 +681,18 @@ style={{transform:scaleX(${fillPct/100}),transition:"transform 1s linear"}} />
       )}
     </div>
   </div>
-</button>{/* ── LOG DENTIST VISIT BUTTON ── */}
-<button
-onClick={openDentistModal}
-className="press hover-lift w-full py-3.5 rounded-2xl text-sm font-bold border border-blue-200 bg-gradient-to-r from-blue-50 to-cyan-50 text-blue-600 hover:border-blue-400 transition-all flex items-center justify-center gap-2"
-
-
-
-🦷 Log Dentist Visit
 </button>
 
-```
+<button
+onClick={openDentistModal}
+className="press hover-lift w-full py-3.5 rounded-2xl text-sm font-bold border border-blue-200 bg-gradient-to-r from-blue-50 to-cyan-50 text-blue-600 hover:border-blue-400 transition-all flex items-center justify-center gap-2">
+🦷 Log Dentist Visit
+</button>
 
   </div>
 
 {/* ── DENTIST VISIT CARD ── */}
 {(nextDentistVisit || lastDentistVisit) && (
-
 <div className={`rounded-3xl p-5 shadow-md border ${ nextDentistVisit && daysUntilVisit !== null && daysUntilVisit <= 0 ? "bg-orange-50 border-orange-200" : nextDentistVisit && daysUntilVisit !== null && daysUntilVisit <= 14 ? "bg-amber-50 border-amber-200" : "bg-white border-blue-100" }`}>
 {nextDentistVisit && daysUntilVisit !== null && (
 <div className="flex items-center gap-3 mb-3">
@@ -733,8 +716,6 @@ In {daysUntilVisit} day{daysUntilVisit !== 1 ? "s" : ""}
 </div>
 )}
 
-```
-
 {nextDentistVisit && lastDentistVisit && (
 <div className="border-t border-blue-50 my-3" />
 )}
@@ -748,12 +729,10 @@ In {daysUntilVisit} day{daysUntilVisit !== 1 ? "s" : ""}
 </div>
 </div>
 )}
-
 </div>
-```)}
+)}
 
 {/* ── WATER TRACKER ── */}
-
 <div className="bg-white rounded-3xl p-5 shadow-lg border border-blue-100">
     <div className="flex items-center gap-2 mb-4">
       <Droplets className="w-5 h-5 text-blue-500" />
@@ -787,8 +766,9 @@ In {daysUntilVisit} day{daysUntilVisit !== 1 ? "s" : ""}
         <p className="text-xs text-blue-600 font-bold">🎉 {T("Daily hydration goal reached!")}</p>
       </div>
     )}
-  </div>{/* ── MOOD TRACKER ── */}
+  </div>
 
+{/* ── MOOD TRACKER ── */}
 <div className="bg-white rounded-3xl p-5 shadow-lg border border-blue-100">
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-2">
@@ -811,9 +791,10 @@ In {daysUntilVisit} day{daysUntilVisit !== 1 ? "s" : ""}
         </button>
       )}
     </div>
-  </div>{/* ── MILESTONE ── */}
-{streakMilestones.length > 0 && streakMilestones[0].remaining > 0 && (
+  </div>
 
+{/* ── MILESTONE ── */}
+{streakMilestones.length > 0 && streakMilestones[0].remaining > 0 && (
 <div className="bg-white rounded-3xl p-5 shadow-lg border border-blue-100">
 <div className="flex items-center gap-2 mb-3">
 <Zap className="w-5 h-5 text-blue-500" />
@@ -828,13 +809,14 @@ style={{width:`${Math.min(100,(current/streakMilestones[0].next)*100)}%`,backgro
 </div>
 <p className="text-xs text-gray-500 mt-2">{streakMilestones[0].remaining} {T("days to go — keep it up!")} 💪</p>
 </div>
-)}{/* ── TIP OF THE DAY ── */}
+)}
 
+{/* ── TIP OF THE DAY ── */}
 <div className="bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 rounded-3xl p-5 shadow-xl relative overflow-hidden">
     <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -translate-y-12 translate-x-12" />
     <div className="relative z-10">
       <div className="flex items-center gap-2 mb-3">
-        <Sparkles className="w-4 h-4 text-white/80" />
+        <span className="w-4 h-4 text-white/80"><Sparkles className="w-4 h-4" /></span>
         <p className="text-[11px] font-bold text-white/80 uppercase tracking-wider">✨ {T("Tip of the Day")}</p>
       </div>
       <div className="flex gap-3 items-start">
@@ -845,8 +827,9 @@ style={{width:`${Math.min(100,(current/streakMilestones[0].next)*100)}%`,backgro
         </div>
       </div>
     </div>
-  </div>{/* ── BRUSHING TIPS ACCORDION ── */}
+  </div>
 
+{/* ── BRUSHING TIPS ACCORDION ── */}
 <div className="bg-white rounded-3xl shadow-lg border border-blue-100 overflow-hidden">
     <button className="w-full p-5 flex items-center justify-between press group" onClick={() => setTipsOpen(!tipsOpen)}>
       <div className="flex items-center gap-2">
@@ -872,9 +855,10 @@ style={{width:`${Math.min(100,(current/streakMilestones[0].next)*100)}%`,backgro
         ))}
       </div>
     )}
-  </div>{/* ── REFLECTION NOTE ── */}
-{reflectionText && (
+  </div>
 
+{/* ── REFLECTION NOTE ── */}
+{reflectionText && (
 <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-3xl p-5">
 <div className="flex items-center justify-between mb-2">
 <div className="flex items-center gap-2">
@@ -885,9 +869,10 @@ style={{width:`${Math.min(100,(current/streakMilestones[0].next)*100)}%`,backgro
 </div>
 <p className="text-sm text-gray-600 italic leading-relaxed">"{reflectionText}"</p>
 </div>
-)}{/* ── BADGES ── */}
-{badges.length > 0 && (
+)}
 
+{/* ── BADGES ── */}
+{badges.length > 0 && (
 <div className="bg-white rounded-3xl p-5 shadow-lg border border-blue-100">
 <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">🏅 {T("Achievements")}</p>
 <div className="flex flex-wrap gap-2">
@@ -901,7 +886,9 @@ return (
 })}
 </div>
 </div>
-)}{/* ── SHARE BUTTON ── */}
+)}
+
+{/* ── SHARE BUTTON ── */}
 <button onClick={handleShare}
 className="press hover-lift w-full py-4 rounded-2xl text-sm font-black text-white flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 shadow-lg shadow-blue-200">
 <Share2 className="w-4 h-4" />
@@ -909,9 +896,7 @@ className="press hover-lift w-full py-4 rounded-2xl text-sm font-black text-whit
 </button>
 
 {/* ── MODALS ── */}
-
 {showReflection && (
-
 <div className="fixed inset-0 bg-blue-900/25 backdrop-blur-sm flex items-end sm:items-center justify-center z-50"
 style={{animation:"fadeIn .22s ease"}} onClick={() => setShowReflection(false)}>
 <div className="bg-white rounded-t-3xl sm:rounded-3xl w-full max-w-md p-6 shadow-2xl"
@@ -938,8 +923,9 @@ className="flex-1 py-3.5 bg-gray-100 text-gray-500 rounded-2xl text-sm font-bold
 </div>
 </div>
 </div>
-)}{showMoodModal && (
+)}
 
+{showMoodModal && (
 <div className="fixed inset-0 bg-blue-900/25 backdrop-blur-sm flex items-end sm:items-center justify-center z-50"
 style={{animation:"fadeIn .22s ease"}} onClick={() => setShowMoodModal(false)}>
 <div className="bg-white rounded-t-3xl sm:rounded-3xl w-full max-w-md p-6 shadow-2xl"
@@ -962,8 +948,9 @@ className="w-full mt-4 py-3 text-sm text-gray-400 hover:bg-gray-50 rounded-2xl p
 </button>
 </div>
 </div>
-)}{showShareModal && (
+)}
 
+{showShareModal && (
 <div className="fixed inset-0 bg-blue-900/25 backdrop-blur-sm flex items-end sm:items-center justify-center z-50"
 style={{animation:"fadeIn .22s ease"}} onClick={() => setShowShareModal(false)}>
 <div className="bg-white rounded-t-3xl sm:rounded-3xl w-full max-w-md p-6 shadow-2xl"
@@ -985,15 +972,16 @@ className="w-full mt-2.5 py-3 text-sm text-gray-400 hover:bg-gray-50 rounded-2xl
 </button>
 </div>
 </div>
-)}{/* ── DENTIST VISIT MODAL ── */}
-{showDentistModal && (
+)}
 
+{/* ── DENTIST VISIT MODAL ── */}
+{showDentistModal && (
 <div className="fixed inset-0 bg-blue-900/25 backdrop-blur-sm flex items-end sm:items-center justify-center z-50"
 style={{animation:"fadeIn .22s ease"}} onClick={() => setShowDentistModal(false)}>
 <div className="bg-white rounded-t-3xl sm:rounded-3xl w-full max-w-md p-6 shadow-2xl overflow-y-auto max-h-[90vh]"
 style={{animation:"slideUp .35s cubic-bezier(.22,1,.36,1)"}}
 onClick={e => e.stopPropagation()}>
-<div className="w-10 h-1 bg-gray-200 rounded-full mx-auto mb-5 sm:hidden" />```
+<div className="w-10 h-1 bg-gray-200 rounded-full mx-auto mb-5 sm:hidden" />
     <div className="flex items-center gap-3 mb-5">
       <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-xl flex-shrink-0">🦷</div>
       <div className="min-w-0">
@@ -1002,7 +990,6 @@ onClick={e => e.stopPropagation()}>
       </div>
     </div>
 
-    {/* ── SECTION 1: Last Visit ── */}
     <div className="mb-5 p-4 rounded-2xl bg-gray-50 border-2 border-gray-200">
       <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">📅 Last Visit Date</p>
       <input
@@ -1022,10 +1009,8 @@ onClick={e => e.stopPropagation()}>
       <p className="text-[10px] text-gray-400 mt-2">When did you last visit the dentist?</p>
     </div>
 
-    {/* ── SECTION 2: Next Appointment ── */}
     <div className="mb-5">
       <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">🗓️ Next Appointment</p>
-
       <div className="grid grid-cols-3 gap-2 mb-4">
         {[3, 6, 12].map(months => (
           <button
@@ -1044,7 +1029,6 @@ onClick={e => e.stopPropagation()}>
           </button>
         ))}
       </div>
-
       <div className="flex items-center gap-2 p-3 rounded-xl bg-gray-50 border border-gray-200 mb-4">
         <input
           type="number"
@@ -1059,7 +1043,6 @@ onClick={e => e.stopPropagation()}>
         />
         <span className="text-sm text-gray-600">months from today</span>
       </div>
-
       <div className="relative">
         <div className="absolute inset-0 flex items-center mb-4">
           <div className="w-full border-t border-gray-300"></div>
@@ -1068,7 +1051,6 @@ onClick={e => e.stopPropagation()}>
           <span className="px-3 bg-white text-xs text-gray-500">OR</span>
         </div>
       </div>
-
       <div className="p-3 rounded-xl bg-gray-50 border border-gray-200">
         <p className="text-xs font-medium text-gray-500 mb-2">Pick a specific date</p>
         <input
@@ -1081,7 +1063,6 @@ onClick={e => e.stopPropagation()}>
       </div>
     </div>
 
-    {/* ── SAVE ── */}
     <button
       onClick={saveDentistModal}
       className="press hover-lift w-full py-4 rounded-2xl text-sm font-black text-white bg-gradient-to-r from-blue-600 to-cyan-600 shadow-lg shadow-blue-200 mb-2"
@@ -1094,8 +1075,6 @@ onClick={e => e.stopPropagation()}>
     </button>
   </div>
 </div>
-```
-
 )}
 
 </section>
