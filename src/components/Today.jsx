@@ -1,3 +1,5 @@
+import { logEvent } from "firebase/analytics";
+import { analytics } from "../firebase";
 import { useEffect, useState, useContext, useRef, useCallback } from "react";
 import { getDateKey, getYesterdayKey } from "../utils/date.js";
 import { calculateStreaks } from "../utils/streak.js";
