@@ -400,7 +400,7 @@ setShareNotes('');
 if (translating || Object.keys(translatedText).length === 0) {
 return (
 <div className="space-y-6 pb-8">
-<div className="bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-500 text-white rounded-3xl p-6 shadow-xl">
+<div className="bg-blue-600 text-white rounded-2xl p-6 shadow-sm">
 <div className="animate-pulse flex items-center gap-2">
 <Sparkles className="w-6 h-6" />
 <h2 className="text-2xl font-black">Loading…</h2>
@@ -540,7 +540,7 @@ return (
         
         <button
           onClick={shareWithDentist}
-          className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-4 rounded-xl font-bold hover:shadow-lg transition-all"
+          className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:shadow-sm transition-all"
         >
           {translatedText.sendEmail}
         </button>
