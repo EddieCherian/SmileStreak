@@ -563,16 +563,16 @@ const daysUntilVisit = getDaysUntilNextVisit();
 if (translating || !txReady) {
 return (
 <section className="space-y-6 pb-8">
-<div className="bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-500 text-white rounded-3xl p-6 shadow-xl relative overflow-hidden">
-<div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16" />
-<div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12" />
-<div className="relative z-10 animate-pulse flex items-center gap-3">
-<span className="text-3xl">🦷</span>
-<div>
-<h2 className="text-2xl font-black">Loading…</h2>
-<p className="text-sm opacity-75 mt-0.5">Preparing your routine</p>
-</div>
-</div>
+<div className="bg-blue-600 text-white rounded-2xl p-6 shadow-sm relative overflow-hidden">
+  <div className="absolute top-0 right-0 w-20 h-20 bg-white/6 rounded-full -translate-y-12 translate-x-12" />
+  <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/6 rounded-full translate-y-10 -translate-x-10" />
+  <div className="relative z-10 animate-pulse flex items-center gap-3">
+    <span className="text-3xl">🦷</span>
+    <div>
+      <h2 className="text-2xl font-semibold">Loading…</h2>
+      <p className="text-sm opacity-75 mt-0.5">Preparing your routine</p>
+    </div>
+  </div>
 </div>
 {[1,2,3].map(i => (
 <div key={i} className="bg-white rounded-3xl p-5 shadow-lg border border-blue-100 animate-pulse">
@@ -622,25 +622,25 @@ return (
   `}</style>
 
 {/* ── HERO HEADER ── */}
-  <div className="bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-500 text-white rounded-3xl p-6 shadow-xl relative overflow-hidden">
-    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16" />
-    <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12" />
+  <div className="bg-blue-600 text-white rounded-2xl p-6 shadow-sm relative overflow-hidden">
+    <div className="absolute top-0 right-0 w-20 h-20 bg-white/6 rounded-full -translate-y-12 translate-x-12" />
+    <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/6 rounded-full translate-y-10 -translate-x-10" />
     <div className="relative z-10">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <span className="text-3xl">{mot.emoji}</span>
           <div>
-            <h2 className="text-2xl font-black">🦷 {T("Today's Routine")}</h2>
+            <h2 className="text-2xl font-semibold">🦷 {T("Today's Routine")}</h2>
             <p className="text-sm opacity-90 mt-0.5">{dayLabel}</p>
           </div>
         </div>
         <button onClick={() => setShowReflection(true)}
-          className="p-2.5 rounded-2xl bg-white/20 hover:bg-white/30 transition-colors press">
+          className="p-2.5 rounded-2xl bg-white/12 hover:bg-white/20 transition-colors press">
           <Heart className="w-5 h-5 text-white" />
         </button>
       </div>
-      <div className="mt-4 pt-4 border-t border-white/20">
-        <p className="font-bold text-white">{T(mot.textKey)}</p>
+      <div className="mt-4 pt-4 border-t border-white/12">
+        <p className="font-semibold text-white">{T(mot.textKey)}</p>
         <p className="text-sm text-blue-100 mt-0.5">{remainingText}</p>
       </div>
     </div>
