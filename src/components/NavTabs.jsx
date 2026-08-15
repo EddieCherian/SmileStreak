@@ -34,11 +34,11 @@ export default function NavTabs({ activeTab, setActiveTab }) {
              key={tab}
              onClick={() => handleTab(tab)}
              className={`
-               px-5 py-2 rounded-full text-sm font-semibold whitespace-nowrap
+               px-5 py-2 rounded-lg text-sm font-semibold whitespace-nowrap
                transition-all duration-200 border
                ${active
-                 ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white border-transparent shadow-md"
-                 : "bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200"}
+                 ? "bg-blue-600 text-white border-transparent shadow-sm"
+                 : "bg-gray-50 text-gray-700 border-gray-100 hover:bg-gray-100"}
              `}
            >
              {tab}
@@ -50,11 +50,11 @@ export default function NavTabs({ activeTab, setActiveTab }) {
          <button
            onClick={() => setShowMore((prev) => !prev)}
            className={`
-             px-5 py-2 rounded-full text-sm font-semibold whitespace-nowrap
+             px-5 py-2 rounded-lg text-sm font-semibold whitespace-nowrap
              transition-all duration-200 border
              ${isMoreActive || showMore
-               ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white border-transparent shadow-md"
-               : "bg-gray-100 text-gray-700 border-gray-200 hover:bg-gray-200"}
+               ? "bg-blue-600 text-white border-transparent shadow-sm"
+               : "bg-gray-50 text-gray-700 border-gray-100 hover:bg-gray-100"}
            `}
          >
            {isMoreActive
@@ -64,7 +64,7 @@ export default function NavTabs({ activeTab, setActiveTab }) {
 
          {showMore && (
            <div
-             className="fixed z-[9999] bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 flex flex-col gap-1 min-w-[160px]"
+             className="fixed z-[9999] card p-2 flex flex-col gap-1 min-w-[160px]"
              style={{
                top: moreRef.current
                  ? moreRef.current.getBoundingClientRect().bottom + 8
