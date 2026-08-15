@@ -1,3 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root{
+  /* Palette — medical-grade, neutral surfaces with a vibrant accent */
+  --color-navy-900: #0b1116;
+  --color-navy-700: #2b3a49;
+  --color-slate-200: #eef0f2;
+  --color-surface: #fbfcfd;
+  --color-muted: #6f7983;
+  --color-text: #0f1417;
+  --color-accent: #12a78f; /* modern teal */
+  --color-accent-600: #0e8f76;
+  --glass-bg: rgba(255,255,255,0.7);
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+  --shadow-soft: 0 8px 24px rgba(15,23,42,0.06);
+  --shadow-elevated: 0 16px 48px rgba(15,23,42,0.08);
+}
+
+html, body, #root { height: 100%; }
+
+/* Base typography */
+body {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+/* Heading scale */
+h1 { font-family: Space Grotesk, Inter; font-size: 1.75rem; line-height:1.1; }
+h2 { font-family: Space Grotesk, Inter; font-size: 1.25rem; }
+h3 { font-size: 1rem; }
+
+/* Global transitions and interaction polish */
+* { transition: background-color .18s var(--tw-transition-timing-function, cubic-bezier(.2,.9,.3,1)), color .18s ease, transform .18s ease; }
+
+button { cursor: pointer; border-radius: var(--radius-xl); padding: 0.55rem 1rem; transition: transform .16s ease, box-shadow .16s ease; }
+button:active { transform: translateY(1px) scale(0.998); }
+
+/* Primary accent button */
+.accent-btn {
+  background: linear-gradient(180deg, var(--color-accent) 0%, var(--color-accent-600) 100%);
+  color: white; padding: .5rem 1rem; border: none; box-shadow: var(--shadow-soft); border-radius: var(--radius-xl);
+}
+.accent-btn:hover { box-shadow: var(--shadow-elevated); transform: translateY(-2px); }
+
+/* Card tokens */
+.card, .card-large {
+  background: rgba(255,255,255,0.82);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(15,23,42,0.04);
+}
+.card-large { padding: 1.25rem; }
+.card { padding: 0.9rem; }
+
+/* Glass / frosted surface */
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.5));
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 0 8px 32px rgba(15,23,42,0.06);
+}
+
+/* Inputs */
+.input {
+  padding: .5rem .75rem; border-radius: .75rem; border: 1px solid rgba(15,23,42,0.06); background: white; box-shadow: var(--shadow-soft);
+}
+.input:focus { outline: none; box-shadow: 0 8px 24px rgba(18,167,143,0.08); border-color: rgba(18,167,143,0.18); }
+
+/* Make gradients subtle and unified across existing gradient utility uses */
+.bg-gradient-to-br, .bg-gradient-to-r {
+  background-image: linear-gradient(90deg, rgba(240,246,247,1) 0%, rgba(250,252,252,1) 100%) !important;
+}
+
+/* Tidy up previously loud neon glows */
+.glow, .animate-glow { box-shadow: none !important; }
+
+/* Dropdown/card z-index helper */
+.popover {
+  position: absolute; z-index: 9999; min-width: 180px; border-radius: var(--radius-xl); background: rgba(255,255,255,0.96); box-shadow: var(--shadow-elevated); border: 1px solid rgba(15,23,42,0.04);
+}
+
+/* Small utilities */
+.muted { color: var(--color-muted); }
+.text-accent { color: var(--color-accent); }
+.rounded-3xl { border-radius: 2rem !important; }
+
+/* Focus rings for accessibility */
+:focus { outline: 3px solid rgba(18,167,143,0.12); outline-offset: 4px; }
+
+/* Reduce heavy shadows used elsewhere */
+.shadow-2xl { box-shadow: var(--shadow-elevated) !important; }
+
+/* Soft hover lift for interactive cards */
+.card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(15,23,42,0.08); }
+
+/* Ensure nav tabs/controls use neutral backgrounds unless intentionally accent colored */
+.pill-minimal { background: white; border: 1px solid rgba(15,23,42,0.06); color: var(--color-text); padding: .45rem .9rem; border-radius: 999px; }
+
+/* Make icon badges consistent */
+.icon-badge { width: 44px; height: 44px; border-radius: 12px; display:flex; align-items:center; justify-content:center; background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85)); box-shadow: var(--shadow-soft); }
+
+/* Keep legacy helpers but quieter */
+.bg-white { background: var(--color-surface) !important; }
+
+/* ensure form elements and buttons look tactile */
+input, textarea, select { font-family: Inter, system-ui; }
+
+/* reduce animation intensity */
+.animate-pulse { opacity: .9; }
