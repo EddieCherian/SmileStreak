@@ -141,25 +141,25 @@ export default function Progress({ habitData }) {
   return (
     <section className="space-y-6 pb-8">
       {/* Header */}
-      <div className="bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-500 text-white rounded-3xl p-6 shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16" />
-        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12" />
+      <div className="bg-blue-600 text-white rounded-2xl p-6 shadow-sm relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-20 h-20 bg-white/6 rounded-full -translate-y-12 translate-x-12" />
+        <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/6 rounded-full translate-y-10 -translate-x-10" />
         <div className="relative z-10">
           <div className="flex items-center gap-2 mb-2">
             <TrendingUp className="w-6 h-6" />
-            <h2 className="text-2xl font-black">{texts.yourProgress || "Your Progress"}</h2>
+            <h2 className="text-2xl font-semibold">{texts.yourProgress || "Your Progress"}</h2>
           </div>
           <p className="text-sm opacity-90">{texts.trackJourney || "Track your dental care journey"}</p>
         </div>
       </div>
 
       {/* CALENDAR */}
-      <div className="bg-white rounded-3xl p-5 shadow-lg border border-blue-100">
+      <div className="card p-5">
         <WeeklyCalendar habitData={habitData || {}} />
       </div>
 
       {/* ── ACTIVITY HEATMAP ── */}
-      <div className="bg-white rounded-3xl p-5 shadow-lg border border-blue-100">
+      <div className="card p-5">
         {/* Card Header */}
         <div className="flex items-center gap-2 mb-1">
           <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center">
