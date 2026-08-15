@@ -182,9 +182,9 @@ export default function Mission() {
   return (
     <div className="space-y-6 pb-8">
       {/* Header */}
-      <div className="bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-500 text-white rounded-3xl p-6 shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16" />
-        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12" />
+      <div className="bg-blue-600 text-white rounded-2xl p-6 shadow-sm relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-20 h-20 bg-white/6 rounded-full -translate-y-12 translate-x-12" />
+        <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/6 rounded-full translate-y-10 -translate-x-10" />
         
         <div className="relative z-10">
           <div className="flex items-center gap-2 mb-2">
@@ -196,7 +196,7 @@ export default function Mission() {
       </div>
 
       {/* Mission Statement */}
-      <div className="bg-white p-6 rounded-3xl shadow-lg border border-blue-100">
+      <div className="card p-6">
         <div className="flex items-start gap-3 mb-4">
           <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center flex-shrink-0">
             <Target className="w-6 h-6 text-white" />
@@ -214,9 +214,9 @@ export default function Mission() {
       </div>
 
       {/* Features Grid */}
-      <div className="bg-white rounded-3xl p-6 shadow-lg border border-blue-100">
-        <h3 className="text-xl font-black text-gray-900 mb-4 flex items-center gap-2">
-          <Sparkles className="w-6 h-6 text-blue-600" />
+      <div className="card p-6">
+        <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <Sparkles className="w-6 h-6 text-blue-500" />
           {translatedText.exploreFeatures}
         </h3>
         
