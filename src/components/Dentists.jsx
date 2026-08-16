@@ -822,7 +822,7 @@ const askAIAssistant = async () => {
 
   const getBadge = (dentist) => {
     if (dentist.isRoyseCity) {
-      return { text: "⭐ #1 Recommended", color: "bg-gradient-to-r from-yellow-400 to-orange-500 text-white shadow-lg" };
+      return { text: "⭐ #1 Recommended", color: "text-amber-600 font-semibold" };
     }
     if (dentist.rating >= 4.8 && dentist.review_count >= 50) {
       return { text: "🏆 Highly Rated", color: "bg-blue-100 text-blue-700" };
@@ -855,7 +855,7 @@ const askAIAssistant = async () => {
   if (Object.keys(translatedText).length === 0) {
     return (
       <section className="space-y-6 pb-8">
-        <div className="bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-500 text-white rounded-[2.5rem] p-8 shadow-xl">
+        <div className="card-elevated rounded-[2rem] p-8 relative overflow-hidden">
           <div className="animate-pulse flex items-center gap-3">
             <MapPin className="w-7 h-7" />
             <h2 className="text-3xl font-black">Loading...</h2>
@@ -868,7 +868,7 @@ const askAIAssistant = async () => {
   return (
     <section className="space-y-6 pb-8">
       {/* HEADER */}
-      <div className="bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-500 text-white rounded-[2.5rem] p-8 shadow-xl relative overflow-hidden">
+      <div className="card-elevated rounded-[2rem] p-8 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-20 translate-x-20" />
         <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full translate-y-16 -translate-x-16" />
         <div className="relative z-10">
@@ -953,7 +953,7 @@ const askAIAssistant = async () => {
               <button
                 onClick={askAIAssistant}
                 disabled={aiLoading || !aiQuery.trim()}
-                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full btn-accent py-4 rounded-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {aiLoading ? (
                   <div className="flex items-center justify-center gap-2">
