@@ -275,9 +275,9 @@ html.dark .card { background: #0f1113; color: var(--text-dark); border: 1px soli
 /* Remove accidental transparent text caused by bg-clip and text-transparent on headings */
 h1[class*="bg-clip-text"], h2[class*="bg-clip-text"], .heading[class*="bg-clip-text"] { color: var(--heading-color) !important; background-image: none !important; }
 
-/* FORCE: make every text element use readable primary color by default. This is intentionally broad to fix invisible text issues; override only where necessary. */
+/* FORCE: make every text element use brand accent color (turquoise) or white where inverted. Intentionally broad to lock palette to only accent or white. */
 body, body * {
-  color: var(--text-primary) !important;
+  color: var(--accent) !important;
 }
 
 /* Elements using accent-like backgrounds should display inverted text for contrast */
