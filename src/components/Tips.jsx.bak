@@ -34,7 +34,7 @@ const BLOG_ARTICLES = [
 title: "Building SmileStreak: The Journey of Creating a Dental AI App",
 description: "How I built a dental habit tracker with AI smile scanning as a high school student, the struggles, lessons learned, and the ethics behind health technology.",
 tag: "Founder Story",
-tagColor: 'var(--accent)',
+tagColor: "#3b82f6",
 emoji: "🚀",
 url: "https://medium.com/@eddiecherianj"
 },
@@ -42,7 +42,7 @@ url: "https://medium.com/@eddiecherianj"
 title: "AI in Dentistry: How SmileStreak is Bringing Intelligent Oral Care to Your Phone",
 description: "Artificial intelligence is transforming healthcare. Here's how SmileStreak uses AI-powered smile scanning and a dental chatbot to make better oral care accessible to everyone.",
 tag: "Health Tech",
-tagColor: 'var(--accent)',
+tagColor: "#10b981",
 emoji: "🤖",
 url: "https://medium.com/@eddiecherianj"
 }

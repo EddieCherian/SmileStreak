@@ -618,7 +618,7 @@ return (
     .press:active { transform: scale(.97) }
     .hover-lift { transition: all .2s ease }
     .hover-lift:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(59,130,246,.18) }
-    .aligner-pulse::before { content:''; position:absolute; inset:0; border-radius:inherit; border:2px solid var(--accent); animation:pulse-ring 1.5s ease-out infinite; }
+    .aligner-pulse::before { content:''; position:absolute; inset:0; border-radius:inherit; border:2px solid #06b6d4; animation:pulse-ring 1.5s ease-out infinite; }
   `}</style>
 
 {/* ── HERO HEADER ── */}
@@ -701,15 +701,15 @@ return (
     <div className="flex items-center gap-4 mb-2">
       <div className="relative w-14 h-14 flex-shrink-0">
         <svg className="w-full h-full -rotate-90" viewBox="0 0 56 56">
-          <circle cx="28" cy="28" r="22" fill="none" stroke="currentColor" strokeWidth="5" />
+          <circle cx="28" cy="28" r="22" fill="none" stroke="#dbeafe" strokeWidth="5" />
           <circle cx="28" cy="28" r="22" fill="none" stroke="url(#grad)" strokeWidth="5" strokeLinecap="round"
             strokeDasharray={`${2*Math.PI*22}`}
             strokeDashoffset={`${2*Math.PI*22*(1-percent/100)}`}
             style={{transition:"stroke-dashoffset .7s cubic-bezier(.4,0,.2,1)"}} />
           <defs>
             <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="currentColor" />
-              <stop offset="100%" stopColor="currentColor" />
+              <stop offset="0%" stopColor="#3b82f6" />
+              <stop offset="100%" stopColor="#06b6d4" />
             </linearGradient>
           </defs>
         </svg>

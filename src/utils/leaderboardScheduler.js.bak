@@ -4,7 +4,7 @@ export const LEAGUES = [
   {
     id: 0,
     name: "Bronze",
-    color: "var(--accent)",
+    color: "#CD7F32",
     icon: "🥉",
     size: 30,
     promote: 5,
@@ -13,7 +13,7 @@ export const LEAGUES = [
   {
     id: 1,
     name: "Silver",
-    color: "var(--accent)",
+    color: "#C0C0C0",
     icon: "🥈",
     size: 30,
     promote: 5,
@@ -22,7 +22,7 @@ export const LEAGUES = [
   {
     id: 2,
     name: "Gold",
-    color: "var(--accent)",
+    color: "#FFD700",
     icon: "🥇",
     size: 30,
     promote: 5,
@@ -31,7 +31,7 @@ export const LEAGUES = [
   {
     id: 3,
     name: "Diamond",
-    color: "var(--accent)",
+    color: "#66D9FF",
     icon: "💎",
     size: 30,
     promote: 5,
@@ -40,7 +40,7 @@ export const LEAGUES = [
   {
     id: 4,
     name: "Master",
-    color: "var(--accent)",
+    color: "#A855F7",
     icon: "👑",
     size: 30,
     promote: 0,
