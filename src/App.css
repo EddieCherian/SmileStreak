@@ -35,24 +35,48 @@ html:not(.dark) {
 html, body, #root { height: 100%; }
 
 /* Typography: headers use the specified display faces; body uses Plus Jakarta Sans / Lora */
+:root {
+  --text-primary: #0B2530; /* deep readable slate */
+  --text-muted: #51646B; /* subdued, accessible */
+  --text-muted-2: #6B7B82;
+  --text-inverse: #FFFFFF;
+}
+
 body {
   background: var(--bg);
-  color: var(--text);
-  font-family: 'Plus Jakarta Sans', 'Lora', 'IBM Plex Sans', system-ui, -apple-system;
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', 'Lora', 'IBM Plex Sans', system-ui, -apple-system !important;
   line-height: 1.56;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Playfair Display', 'Space Grotesk', 'Syne', serif;
-  color: var(--text);
+/* Force headings and heavy-weight text to the display face for consistent branding */
+h1, h2, h3, h4, h5, h6, .font-black, .font-bold {
+  font-family: 'Playfair Display', 'Space Grotesk', 'Syne', serif !important;
+  color: var(--text-primary) !important;
   margin: 0 0 .35rem 0;
 }
 
 h1 { font-size: 1.75rem; font-weight: 700; line-height: 1.08; }
 h2 { font-size: 1.25rem; font-weight: 600; }
 h3 { font-size: 1rem; font-weight: 600; }
+
+/* Global overrides: map common Tailwind text utilities to readable tokens so the app's text is uniform and legible */
+.text-gray-900, .text-gray-800, .text-gray-700 { color: var(--text-primary) !important; }
+.text-gray-600, .text-gray-500, .text-gray-400 { color: var(--text-muted) !important; }
+.text-gray-300, .text-gray-200 { color: var(--text-muted-2) !important; }
+
+/* Override colored text utilities used around the app to use primary readable text by default */
+.text-blue-600, .text-blue-500, .text-green-600, .text-green-500, .text-purple-600, .text-purple-500, .text-indigo-600 { color: var(--text-primary) !important; }
+
+/* Preserve intentional inverse text (e.g., on dark buttons) */
+.text-white { color: var(--text-inverse) !important; }
+
+/* Muted helper */
+.muted { color: var(--text-muted) !important; }
+
+/* Keep headings and body scale helpers */
 
 /* Clear type scale for UI components (mathematical scaling) */
 .small { font-size: .8125rem; }
