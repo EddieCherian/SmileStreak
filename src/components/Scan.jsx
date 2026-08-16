@@ -400,10 +400,10 @@ setShareNotes('');
 if (translating || Object.keys(translatedText).length === 0) {
 return (
 <div className="space-y-6 pb-8">
-<div className="bg-blue-600 text-white rounded-2xl p-6 shadow-sm">
+<div className="card p-6">
 <div className="animate-pulse flex items-center gap-2">
-<Sparkles className="w-6 h-6" />
-<h2 className="text-2xl font-black">Loading…</h2>
+<Sparkles className="w-6 h-6 text-accent" />
+<h2 className="text-2xl font-black text-gray-900">Loading…</h2>
 </div>
 </div>
 </div>
@@ -413,7 +413,7 @@ return (
 return (
 <div className="space-y-6 pb-8">
 {/* Header */}
-<div className="bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-500 text-white rounded-3xl p-6 shadow-xl relative overflow-hidden">
+<div className="card p-6">
 <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16" />
 <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12" />
 
@@ -678,7 +678,7 @@ return (
       <div className="grid grid-cols-1 gap-4">
         <button
           onClick={startCamera}
-          className="group relative bg-gradient-to-br from-blue-500 to-cyan-500 text-white rounded-3xl p-6 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all overflow-hidden"
+          className="group relative card p-6"
         >
           <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16" />
           <div className="relative z-10 flex items-center gap-4">
@@ -696,7 +696,7 @@ return (
         <label className="group cursor-pointer">
           <div className="relative bg-white border-2 border-gray-200 rounded-3xl p-6 shadow-md hover:shadow-xl hover:border-blue-300 hover:scale-[1.02] transition-all">
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+              <div className="w-14 h-14 bg-muted rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Upload className="w-7 h-7 text-gray-600" />
               </div>
               <div className="text-left flex-1">
@@ -716,12 +716,12 @@ return (
       </div>
 
       {/* Tips - Educational, not fake data */}
-      <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-5">
+      <div className="card p-5">
         <div className="flex items-start gap-3">
-          <Zap className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+          <Zap className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
           <div>
-            <p className="font-bold text-gray-900 text-sm mb-2">{translatedText.tipsTitle}</p>
-            <ul className="text-xs text-gray-600 space-y-1">
+            <p className="font-bold text-sm text-gray-900 mb-2">{translatedText.tipsTitle}</p>
+            <ul className="text-xs muted space-y-1">
               <li>{translatedText.tip1}</li>
               <li>{translatedText.tip2}</li>
               <li>{translatedText.tip3}</li>
@@ -755,7 +755,7 @@ return (
         />
         
         {/* Guidance Overlay - Visual guide only, not data */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50 pointer-events-none">
+        <div className="absolute inset-0 bg-black/50 pointer-events-none">
           <div className="absolute inset-0 grid grid-cols-3 grid-rows-3">
             {[...Array(9)].map((_, i) => (
               <div key={i} className="border border-white/20" />
@@ -768,7 +768,7 @@ return (
         </div>
 
         {/* Guidance Instructions */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+        <div className="absolute bottom-0 left-0 right-0 p-6 bg-black/80">
           <div className="text-center text-white space-y-3">
             <div className="text-4xl mb-2">{guidanceSteps[guidanceStep].icon}</div>
             <h3 className="text-xl font-black">{guidanceSteps[guidanceStep].title}</h3>
@@ -832,7 +832,7 @@ return (
             alt="Captured"
             className="w-full h-auto"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
       )}
 
@@ -854,7 +854,7 @@ return (
       )}
 
       <div className="bg-white rounded-3xl p-8 shadow-xl text-center">
-        <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl mx-auto mb-4 flex items-center justify-center animate-pulse">
+        <div className="w-16 h-16 bg-accent rounded-2xl mx-auto mb-4 flex items-center justify-center animate-pulse">
           <Sparkles className="w-8 h-8 text-white" />
         </div>
         <h3 className="text-xl font-black text-gray-900 mb-2">{translatedText.analyzingTitle}</h3>
@@ -890,7 +890,7 @@ return (
         </div>
       )}
 
-      <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-300 rounded-3xl p-6 shadow-xl">
+      <div className="card p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 bg-green-500 rounded-2xl flex items-center justify-center">
             <CheckCircle2 className="w-6 h-6 text-white" />
@@ -926,7 +926,7 @@ return (
         
         <button
           onClick={() => setShowHistory(true)}
-          className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-4 rounded-2xl font-bold hover:shadow-xl hover:scale-[1.02] transition-all flex items-center justify-center gap-2"
+          className="btn-accent py-4 rounded-2xl font-bold flex items-center justify-center gap-2"
         >
           <History className="w-5 h-5" />
           {translatedText.viewHistory}
@@ -967,12 +967,12 @@ return (
       )}
 
       {/* Improvement Tips - Educational content only */}
-      <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-5">
+      <div className="card p-5">
         <div className="flex items-start gap-3">
-          <TrendingUp className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+          <TrendingUp className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
           <div>
-            <p className="font-bold text-gray-900 text-sm mb-2">{translatedText.trackProgress}</p>
-            <p className="text-xs text-gray-600">{translatedText.trackProgressDesc}</p>
+            <p className="font-bold text-sm text-gray-900 mb-2">{translatedText.trackProgress}</p>
+            <p className="text-xs muted">{translatedText.trackProgressDesc}</p>
           </div>
         </div>
       </div>
