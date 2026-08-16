@@ -857,7 +857,7 @@ className="press hover-lift w-full py-3.5 rounded-2xl text-sm font-bold border b
         </div>
         <div className="h-3 bg-blue-50 rounded-full overflow-hidden border border-blue-100 mb-1">
           <div className="h-full rounded-full transition-all duration-500"
-            style={{width:`${alignerPct}%`, background: alignerGoalReached ? "linear-gradient(90deg,#22c55e,#16a34a)" : "linear-gradient(90deg,#3b82f6,#06b6d4)"}} />
+            style={{width:`${alignerPct}%`, background: alignerGoalReached ? 'var(--success)' : 'var(--accent)'}} />
         </div>
         <div className="flex justify-between">
           <span className="text-[10px] text-gray-400">Time off: {formatAlignerTime(Math.max(0, 86400 - alignerWornSeconds))}</span>
@@ -979,7 +979,7 @@ In {daysUntilVisit} day{daysUntilVisit !== 1 ? "s" : ""}
 </div>
 <div className="h-3 bg-blue-50 rounded-full overflow-hidden border border-blue-100">
 <div className="h-full rounded-full transition-all duration-700"
-style={{width:`${Math.min(100,(current/streakMilestones[0].next)*100)}%`,background:"linear-gradient(90deg,#3b82f6,#06b6d4)"}} />
+style={{width:`${Math.min(100,(current/streakMilestones[0].next)*100)}%`, background: 'var(--accent)'}} />
 </div>
 <p className="text-xs text-gray-500 mt-2">{streakMilestones[0].remaining} {T("days to go — keep it up!")} 💪</p>
 </div>

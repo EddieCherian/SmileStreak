@@ -180,3 +180,48 @@ html.dark .card { background: #0f1113; color: var(--text-dark); border: 1px soli
 /* Final: remove any remaining neon glow helpers */
 .glow, .animate-glow { box-shadow: none !important; filter:none !important; }
 
+/* Semantic color tokens for status and surface fixes */
+:root {
+  --success: #16a34a;
+  --danger: #ef4444;
+  --surface-muted: #F5F7F8;
+}
+
+/* Semantic utility classes */
+.bg-accent { background-color: var(--accent) !important; }
+.text-accent { color: var(--accent) !important; }
+.bg-success { background-color: var(--success) !important; }
+.bg-danger { background-color: var(--danger) !important; }
+.bg-surface-muted { background-color: var(--surface-muted) !important; }
+
+/* Map commonly-used pastel "*-50" backgrounds to neutral surface to avoid color noise */
+.bg-blue-50, .from-blue-50, .to-blue-50,
+.bg-cyan-50, .from-cyan-50, .to-cyan-50,
+.bg-green-50, .from-green-50, .to-green-50,
+.bg-purple-50, .from-purple-50, .to-purple-50,
+.bg-yellow-50, .from-yellow-50, .to-yellow-50,
+.bg-pink-50, .from-pink-50, .to-pink-50,
+.bg-orange-50, .from-orange-50, .to-orange-50 {
+  background-color: var(--surface) !important;
+}
+
+/* Map lightweight borders to the shared border token */
+.border-blue-100, .border-cyan-100, .border-green-100, .border-purple-100, .border-yellow-100, .border-pink-100, .border-orange-100 {
+  border-color: var(--border) !important;
+}
+
+/* Map common solid 500 color utility backgrounds to semantic tokens */
+.bg-blue-500, .bg-cyan-500, .bg-indigo-500 { background-color: var(--accent) !important; }
+.bg-green-500 { background-color: var(--success) !important; }
+.bg-red-500 { background-color: var(--danger) !important; }
+.bg-purple-500 { background-color: #7c3aed !important; }
+
+/* Progress fill fallback */
+.progress-fill { background: var(--accent) !important; }
+
+/* Defensive: remove inline linear gradients where present and prefer semantic tokens */
+[style*="linear-gradient"] { background-image: none !important; }
+
+/* Allow explicit accent classes to appear even when gradients are stripped */
+.btn-accent, .bg-accent { background-image: none !important; color: var(--text-inverse) !important; }
+

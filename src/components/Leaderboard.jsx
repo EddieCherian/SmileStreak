@@ -270,10 +270,10 @@ export default function Leaderboard({ user, username, habitData, darkMode }) {
               style={{
                 width: `${(currentUser.rank / players.length) * 100}%`,
                 background: currentUser.rank / players.length <= 0.2 
-                  ? "linear-gradient(90deg, #22c55e, #16a34a)"
+                  ? 'var(--success)'
                   : currentUser.rank / players.length <= 0.8
-                  ? "linear-gradient(90deg, #3b82f6, #06b6d4)"
-                  : "linear-gradient(90deg, #ef4444, #dc2626)"
+                  ? 'var(--accent)'
+                  : 'var(--danger)'
               }}
             />
           </div>
