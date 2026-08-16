@@ -27,7 +27,7 @@ export default function WeeklyCalendar({ habitData }) {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-5 shadow-md">
+    <div className="card p-5">
       <h3 className="font-bold mb-4">Last 7 Days</h3>
 
       <div className="flex justify-between gap-2">
