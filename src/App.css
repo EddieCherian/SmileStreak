@@ -275,3 +275,16 @@ html.dark .card { background: #0f1113; color: var(--text-dark); border: 1px soli
 /* Remove accidental transparent text caused by bg-clip and text-transparent on headings */
 h1[class*="bg-clip-text"], h2[class*="bg-clip-text"], .heading[class*="bg-clip-text"] { color: var(--heading-color) !important; background-image: none !important; }
 
+/* FORCE: make every text element use readable primary color by default. This is intentionally broad to fix invisible text issues; override only where necessary. */
+body, body * {
+  color: var(--text-primary) !important;
+}
+
+/* Elements using accent-like backgrounds should display inverted text for contrast */
+.bg-accent, [class*="bg-blue-"], [class*="bg-cyan-"], [class*="from-blue-"], [class*="to-blue-"], [class*="from-cyan-"], [class*="to-cyan-"] {
+  color: var(--text-inverse) !important;
+}
+
+/* Keep form controls readable and using their inherited color */
+input, textarea, select, button { color: inherit !important; }
+
