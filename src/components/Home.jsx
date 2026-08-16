@@ -158,16 +158,14 @@ export default function Home({ setActiveTab, user, habitData }) {
   const daysUntilVisit = getDaysUntilVisit();
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? "bg-gray-900" : "bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50"}`}>
+    <div className="min-h-screen transition-colors duration-300">
 
       {/* ── MAIN CONTENT ── */}
       <div className="max-w-lg mx-auto px-5 pt-6 pb-10 space-y-4">
 
         {/* ── HERO CARD ── */}
-        <div className="bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 rounded-3xl px-5 pt-6 pb-5 relative overflow-hidden shadow-xl">
-          <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full -translate-y-24 translate-x-24 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-36 h-36 bg-white/10 rounded-full translate-y-18 -translate-x-18 pointer-events-none" />
-          <div className="absolute top-1/2 right-10 w-16 h-16 bg-white/5 rounded-full pointer-events-none" />
+        <div className="card-elevated px-5 pt-6 pb-5 relative overflow-hidden">
+          {/* decorative shapes removed for a cleaner, more structured brand look */}
 
           <div className="relative z-10">
             {/* Top bar */}
@@ -175,14 +173,14 @@ export default function Home({ setActiveTab, user, habitData }) {
               <div className="flex items-center gap-3">
                 <img
                   src="/icon-511.png"
-                  alt="SmileStreak logo"
-                  className="w-11 h-11 rounded-2xl shadow-lg object-cover ring-2 ring-white/40"
+                  alt="SmileStreak logo — round photograph of smiling teeth, brand mark"
+                  className="w-11 h-11 rounded-xl object-cover ring-1"
                 />
                 <div>
-                  <p className="text-blue-100 text-xs font-medium">
+                  <p className="small muted font-medium">
                     {getGreeting()}{user?.displayName ? `, ${user.displayName.split(" ")[0]}` : ""} 👋
                   </p>
-                  <h1 className="text-lg font-black text-white tracking-tight leading-tight">
+                  <h1 className="text-lg font-black tracking-tight leading-tight">
                     {texts.title || "SmileStreak"}
                   </h1>
                 </div>
@@ -190,14 +188,14 @@ export default function Home({ setActiveTab, user, habitData }) {
               <div className="flex gap-2">
                 <button
                   onClick={() => go("scan")}
-                  className="p-2.5 bg-white/20 hover:bg-white/30 text-white rounded-xl border border-white/20 transition-all duration-200 active:scale-95"
+                  className="btn icon-only"
                   title="Quick Scan"
                 >
                   <Camera className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => go("today")}
-                  className="p-2.5 bg-white/20 hover:bg-white/30 text-white rounded-xl border border-white/20 transition-all duration-200 active:scale-95"
+                  className="btn icon-only"
                   title="Quick Update"
                 >
                   <Calendar className="w-4 h-4" />
@@ -212,8 +210,8 @@ export default function Home({ setActiveTab, user, habitData }) {
                   {texts.currentStreak || "Current Streak"}
                 </p>
                 <div className="flex items-end gap-2">
-                  <span className="text-6xl font-black text-white leading-none">{streak}</span>
-                  <span className="text-blue-200 font-semibold text-base pb-1.5">{texts.days || "days"} 🔥</span>
+                  <h2 className="display-sm font-black leading-none">{streak}</h2>
+                  <span className="small muted font-semibold text-base pb-1.5">{texts.days || "days"} 🔥</span>
                 </div>
               </div>
               <div className="text-right pb-1">
