@@ -288,3 +288,7 @@ body, body * {
 /* Keep form controls readable and using their inherited color */
 input, textarea, select, button { color: inherit !important; }
 
+/* Force SVGs and icon fills to follow text color (so icons obey turquoise/white lock) */
+svg { color: inherit; }
+svg [fill], svg [stroke] { fill: currentColor !important; stroke: currentColor !important; }
+
