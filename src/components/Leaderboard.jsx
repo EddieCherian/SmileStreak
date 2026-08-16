@@ -20,11 +20,11 @@ export default function Leaderboard({ user, username, habitData, darkMode }) {
   };
 
   const LEAGUE_COLORS = {
-    Bronze: "from-amber-600 to-amber-800",
-    Silver: "from-gray-400 to-gray-600",
-    Gold: "from-yellow-400 to-yellow-600",
-    Diamond: "from-cyan-400 to-blue-600",
-    Champion: "from-purple-500 to-pink-600"
+    Bronze: "text-amber-600",
+    Silver: "text-gray-500",
+    Gold: "text-yellow-600",
+    Diamond: "text-cyan-600",
+    Champion: "text-purple-600"
   };
 
   // ── TIME REMAINING CALCULATION ──
@@ -183,27 +183,27 @@ export default function Leaderboard({ user, username, habitData, darkMode }) {
 
   if (loading) {
     return (
-      <div className={`w-full rounded-2xl p-8 text-center ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg`}>
+      <div className={`w-full rounded-2xl p-8 text-center card`}>
         <div className="animate-pulse">
-          <div className="h-8 bg-gray-300 dark:bg-gray-600 rounded w-1/3 mx-auto mb-4"></div>
-          <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded w-1/2 mx-auto"></div>
+          <div className="h-8 bg-gray-200 rounded w-1/3 mx-auto mb-4"></div>
+          <div className="h-4 bg-gray-200 rounded w-1/2 mx-auto"></div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className={`w-full rounded-2xl overflow-hidden shadow-lg border ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} mb-6`}>
+    <div className={`w-full rounded-2xl overflow-hidden border mb-6 card-elevated`}>
       
       {/* ── HEADER ── */}
-      <div className={`bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 p-5 text-white`}>
+      <div className={`p-5`}>
         <div className="flex items-center gap-3">
-          <div className="bg-white/20 p-2 rounded-xl">
+          <div className="icon-badge p-2">
             <Trophy className="w-6 h-6" />
           </div>
           <div>
             <h2 className="text-xl font-black">League Leaderboard</h2>
-            <p className="text-white/90 text-xs">Ranked by weekly points</p>
+            <p className="small muted">Ranked by weekly points</p>
           </div>
         </div>
       </div>
@@ -218,7 +218,7 @@ export default function Leaderboard({ user, username, habitData, darkMode }) {
               <span className="text-3xl">{LEAGUE_EMOJIS[currentUser.league] || "🏆"}</span>
               <div>
                 <p className={`text-xs font-bold uppercase ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Your League</p>
-                <h3 className={`text-xl font-black bg-gradient-to-r ${LEAGUE_COLORS[currentUser.league] || 'from-gray-400 to-gray-600'} bg-clip-text text-transparent`}>
+                <h3 className={`text-xl font-black ${LEAGUE_COLORS[currentUser.league] || 'text-gray-600'}`}>
                   {currentUser.league || "Bronze"}
                 </h3>
               </div>
@@ -233,10 +233,7 @@ export default function Leaderboard({ user, username, habitData, darkMode }) {
 
       {/* ── YOUR RANK ── */}
       {currentUser && (
-        <div className={`mx-4 mt-4 rounded-xl p-4 border ${
-          darkMode ? "bg-blue-900/30 border-blue-700" : "bg-blue-50 border-blue-200"
-        }`}>
-          <div className="flex justify-between items-center">
+        <div className={`mx-4 mt-4 rounded-xl p-4 card`}>          <div className="flex justify-between items-center">
             <div>
               <p className="text-xs font-bold uppercase text-blue-500">Your Rank</p>
               <h3 className="text-2xl font-black">#{currentUser.rank}</h3>
