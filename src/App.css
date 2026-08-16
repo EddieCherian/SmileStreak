@@ -4,17 +4,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design tokens aligned to the brand rules (true-light / true-dark) */
+/* Design tokens aligned to the brand rules (user-provided palette) */
 :root{
-  --bg-light: #FAF9F6; /* off-white */
-  --bg-dark: #0D0F12;  /* deep charcoal */
+  /* Primary brand palette (user requested): */
+  --brand-1: #2BB8BD; /* primary teal */
+  --brand-2: #53C6C8; /* secondary teal */
+
+  --bg-light: #F8FAFA; /* gentle off-white */
+  --bg-dark: #0D0F12;  /* keep for dark mode fallback */
   --surface-light: #FFFFFF;
-  --surface-dark: #0F1113;
-  --text-light: #0F1417;
+  --surface-muted: #DDE1E0; /* subtle surface tint */
+
+  /* Text tokens: keep a readable dark for body text; headings use brand color below */
+  --text-light: #0B2530; /* readable slate for body */
   --text-dark: #E7E9EA;
-  --accent: #0E7C63; /* primary accent, used sparingly */
+
+  --accent: var(--brand-1); /* default accent uses primary brand color */
   --muted: #6B7177;
-  --border: rgba(15,18,20,0.06);
+  --border: rgba(11,37,48,0.06);
   --radius-lg: 1rem;
   --radius-xl: 1.25rem;
   --radius-2xl: 1.75rem;
@@ -37,6 +44,7 @@ html, body, #root { height: 100%; }
 /* Typography: headers use the specified display faces; body uses Plus Jakarta Sans / Lora */
 :root {
   --text-primary: #0B2530; /* deep readable slate */
+  --heading-color: var(--brand-1);
   --text-muted: #51646B; /* subdued, accessible */
   --text-muted-2: #6B7B82;
   --text-inverse: #FFFFFF;
@@ -56,7 +64,7 @@ body {
 /* Force headings and heavy-weight text to the display face for consistent branding */
 h1, h2, h3, h4, h5, h6, .font-black, .font-bold {
   font-family: 'Playfair Display', 'Space Grotesk', 'Syne', serif !important;
-  color: var(--text-primary) !important;
+  color: var(--heading-color) !important;
   margin: 0 0 .35rem 0;
   -webkit-font-smoothing: antialiased;
 }
@@ -80,7 +88,7 @@ h3 { font-size: 1rem; font-weight: 600; }
 
 .card h1, .card h2, .card h3, .card h4, .card .font-black, .card .font-bold {
   font-family: 'Playfair Display', 'Space Grotesk', 'Syne', serif !important;
-  color: var(--text-primary) !important;
+  color: var(--heading-color) !important;
 }
 
 /* Inputs/buttons: normalize to UI font to avoid cross-face rendering glitches */
@@ -147,11 +155,11 @@ h3 { font-size: 1rem; font-weight: 600; }
 .btn-accent {
   background: var(--accent); color: white; border-color: transparent;
 }
-.btn:focus { outline: 2px solid rgba(14,124,99,0.12); outline-offset: 2px; }
+.btn:focus { outline: 2px solid rgba(43,184,189,0.12); outline-offset: 2px; }
 
 /* Inputs and forms — clean, border-driven */
 .input { padding:.5rem .75rem; border-radius:.75rem; border:1px solid var(--border); background: var(--surface); color: var(--text); }
-.input:focus { box-shadow: none; border-color: rgba(14,124,99,0.16); }
+.input:focus { box-shadow: none; border-color: rgba(43,184,189,0.16); }
 
 /* Remove heavy hover lifts — subtle micro-interactions only */
 .card:hover { transform: none; }
@@ -182,9 +190,9 @@ html.dark .card { background: #0f1113; color: var(--text-dark); border: 1px soli
 
 /* Semantic color tokens for status and surface fixes */
 :root {
-  --success: #16a34a;
+  --success: var(--brand-2);
   --danger: #ef4444;
-  --surface-muted: #F5F7F8;
+  --surface-muted: #DDE1E0;
 }
 
 /* Semantic utility classes */
