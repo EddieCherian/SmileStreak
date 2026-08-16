@@ -1,121 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@600;700&family=Syne:wght@600&family=Plus+Jakarta+Sans:wght@300;400;600&family=Lora:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Design tokens aligned to the brand rules (true-light / true-dark) */
 :root{
-  /* Palette — medical-grade, neutral surfaces with a vibrant accent */
-  --color-navy-900: #0b1116;
-  --color-navy-700: #2b3a49;
-  --color-slate-200: #eef0f2;
-  --color-surface: #fbfcfd;
-  --color-muted: #6f7983;
-  --color-text: #0f1417;
-  --color-accent: #12a78f; /* modern teal */
-  --color-accent-600: #0e8f76;
-  --glass-bg: rgba(255,255,255,0.7);
+  --bg-light: #FAF9F6; /* off-white */
+  --bg-dark: #0D0F12;  /* deep charcoal */
+  --surface-light: #FFFFFF;
+  --surface-dark: #0F1113;
+  --text-light: #0F1417;
+  --text-dark: #E7E9EA;
+  --accent: #0E7C63; /* primary accent, used sparingly */
+  --muted: #6B7177;
+  --border: rgba(15,18,20,0.06);
   --radius-lg: 1rem;
   --radius-xl: 1.25rem;
   --radius-2xl: 1.75rem;
-  --shadow-soft: 0 8px 24px rgba(15,23,42,0.06);
-  --shadow-elevated: 0 16px 48px rgba(15,23,42,0.08);
+}
+
+/* Dark mode variables applied when .dark class on html (App toggles this) */
+html.dark {
+  --bg: var(--bg-dark);
+  --surface: var(--surface-dark);
+  --text: var(--text-dark);
+}
+html:not(.dark) {
+  --bg: var(--bg-light);
+  --surface: var(--surface-light);
+  --text: var(--text-light);
 }
 
 html, body, #root { height: 100%; }
 
-/* Base typography */
+/* Typography: headers use the specified display faces; body uses Plus Jakarta Sans / Lora */
 body {
-  background-color: var(--color-surface);
-  color: var(--color-text);
-  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', 'Lora', 'IBM Plex Sans', system-ui, -apple-system;
+  line-height: 1.56;
   font-size: 16px;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Heading scale */
-h1 { font-family: Space Grotesk, Inter; font-size: 1.75rem; line-height:1.1; }
-h2 { font-family: Space Grotesk, Inter; font-size: 1.25rem; }
-h3 { font-size: 1rem; }
-
-/* Global transitions and interaction polish */
-* { transition: background-color .18s var(--tw-transition-timing-function, cubic-bezier(.2,.9,.3,1)), color .18s ease, transform .18s ease; }
-
-button { cursor: pointer; border-radius: var(--radius-xl); padding: 0.55rem 1rem; transition: transform .16s ease, box-shadow .16s ease; }
-button:active { transform: translateY(1px) scale(0.998); }
-
-/* Primary accent button */
-.accent-btn {
-  background: linear-gradient(180deg, var(--color-accent) 0%, var(--color-accent-600) 100%);
-  color: white; padding: .5rem 1rem; border: none; box-shadow: var(--shadow-soft); border-radius: var(--radius-xl);
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', 'Space Grotesk', 'Syne', serif;
+  color: var(--text);
+  margin: 0 0 .35rem 0;
 }
-.accent-btn:hover { box-shadow: var(--shadow-elevated); transform: translateY(-2px); }
 
-/* Card tokens */
-.card, .card-large {
-  background: rgba(255,255,255,0.82);
+h1 { font-size: 1.75rem; font-weight: 700; line-height: 1.08; }
+h2 { font-size: 1.25rem; font-weight: 600; }
+h3 { font-size: 1rem; font-weight: 600; }
+
+/* Clear type scale for UI components (mathematical scaling) */
+.small { font-size: .8125rem; }
+.body { font-size: 1rem; }
+.lead { font-size: 1.0625rem; }
+.display-sm { font-size: 2rem; }
+
+/* Strict ban on multi-stop linear gradients — wipe existing gradient utilities to solid neutral fills */
+[class*="bg-gradient-to-"] { background-image: none !important; }
+
+/* Cards: crisp 1px border, very subtle shadow removed (no heavy box-shadows) */
+.card {
+  background: var(--surface);
   border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(15,23,42,0.04);
+  border: 1px solid var(--border);
+  box-shadow: none;
+  padding: 1rem;
 }
-.card-large { padding: 1.25rem; }
-.card { padding: 0.9rem; }
 
-/* Glass / frosted surface */
+/* subtle elevated surface when required, still 1px border only */
+.card-elevated { background: var(--surface); border: 1px solid rgba(15,18,20,0.08); }
+
+/* Glass effect can be used sparingly but with a crisp border */
 .glass {
-  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.5));
-  backdrop-filter: blur(8px) saturate(120%);
-  -webkit-backdrop-filter: blur(8px) saturate(120%);
-  border: 1px solid rgba(255,255,255,0.5);
-  box-shadow: 0 8px 32px rgba(15,23,42,0.06);
+  background: rgba(255,255,255,0.6);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.45);
 }
 
-/* Inputs */
-.input {
-  padding: .5rem .75rem; border-radius: .75rem; border: 1px solid rgba(15,23,42,0.06); background: white; box-shadow: var(--shadow-soft);
+/* Buttons: solid accent only when necessary */
+.btn {
+  display: inline-flex; align-items:center; gap:.5rem; justify-content:center;
+  padding:.5rem .9rem; border-radius: .75rem; border: 1px solid var(--border); background: transparent; color: var(--text);
 }
-.input:focus { outline: none; box-shadow: 0 8px 24px rgba(18,167,143,0.08); border-color: rgba(18,167,143,0.18); }
-
-/* Make gradients subtle and unified across existing gradient utility uses */
-.bg-gradient-to-br, .bg-gradient-to-r {
-  background-image: linear-gradient(90deg, rgba(240,246,247,1) 0%, rgba(250,252,252,1) 100%) !important;
+.btn-accent {
+  background: var(--accent); color: white; border-color: transparent;
 }
+.btn:focus { outline: 2px solid rgba(14,124,99,0.12); outline-offset: 2px; }
 
-/* Tidy up previously loud neon glows */
-.glow, .animate-glow { box-shadow: none !important; }
+/* Inputs and forms — clean, border-driven */
+.input { padding:.5rem .75rem; border-radius:.75rem; border:1px solid var(--border); background: var(--surface); color: var(--text); }
+.input:focus { box-shadow: none; border-color: rgba(14,124,99,0.16); }
 
-/* Dropdown/card z-index helper */
-.popover {
-  position: absolute; z-index: 9999; min-width: 180px; border-radius: var(--radius-xl); background: rgba(255,255,255,0.96); box-shadow: var(--shadow-elevated); border: 1px solid rgba(15,23,42,0.04);
-}
+/* Remove heavy hover lifts — subtle micro-interactions only */
+.card:hover { transform: none; }
+.btn:hover { transform: translateY(-1px); }
 
-/* Small utilities */
-.muted { color: var(--color-muted); }
-.text-accent { color: var(--color-accent); }
-.rounded-3xl { border-radius: 2rem !important; }
+/* Icon usage: no icon spam — helper class for when icons are meaningful */
+.icon { display:inline-flex; width:20px; height:20px; align-items:center; justify-content:center; }
 
-/* Focus rings for accessibility */
-:focus { outline: 3px solid rgba(18,167,143,0.12); outline-offset: 4px; }
+/* Image placeholder semantics — descriptive alt text required in markup (enforced by reviewer) */
+.img-placeholder { display:block; width:100%; height:auto; object-fit:cover; border-radius: .75rem; }
 
-/* Reduce heavy shadows used elsewhere */
-.shadow-2xl { box-shadow: var(--shadow-elevated) !important; }
+/* Accessibility tweaks */
+:focus { outline-offset: 3px; }
 
-/* Soft hover lift for interactive cards */
-.card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(15,23,42,0.08); }
+/* Legacy helpers quietly moved to muted style */
+.muted { color: var(--muted); }
 
-/* Ensure nav tabs/controls use neutral backgrounds unless intentionally accent colored */
-.pill-minimal { background: white; border: 1px solid rgba(15,23,42,0.06); color: var(--color-text); padding: .45rem .9rem; border-radius: 999px; }
+/* Keep explicit utilities for spacing aligned to scale */
+.p-4 { padding: 1rem !important; }
+.p-8 { padding: 2rem !important; }
+.m-4 { margin: 1rem !important; }
 
-/* Make icon badges consistent */
-.icon-badge { width: 44px; height: 44px; border-radius: 12px; display:flex; align-items:center; justify-content:center; background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85)); box-shadow: var(--shadow-soft); }
+/* Ensure dark-mode inversion for cards */
+html.dark .card { background: #0f1113; color: var(--text-dark); border: 1px solid rgba(255,255,255,0.04); }
 
-/* Keep legacy helpers but quieter */
-.bg-white { background: var(--color-surface) !important; }
+/* Final: remove any remaining neon glow helpers */
+.glow, .animate-glow { box-shadow: none !important; filter:none !important; }
 
-/* ensure form elements and buttons look tactile */
-input, textarea, select { font-family: Inter, system-ui; }
-
-/* reduce animation intensity */
-.animate-pulse { opacity: .9; }

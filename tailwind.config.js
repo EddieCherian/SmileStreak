@@ -69,8 +69,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto'],
-        heading: ['Space Grotesk', 'Inter', 'ui-sans-serif', 'system-ui']
+        body: ['"Plus Jakarta Sans"', 'Lora', '"IBM Plex Sans"', 'system-ui', '-apple-system'],
+        heading: ['"Playfair Display"', 'Space Grotesk', 'Syne', 'serif']
       },
       borderRadius: {
         'lg': '1rem',
@@ -84,8 +84,8 @@ export default {
         '11': '2.75rem'
       },
       boxShadow: {
-        soft: '0 8px 24px rgba(15, 23, 42, 0.06)',
-        elevated: '0 16px 48px rgba(15, 23, 42, 0.08)',
+        soft: '0 1px 0 rgba(15, 23, 42, 0.03)',
+        elevated: '0 2px 6px rgba(15, 23, 42, 0.04)',
         insetSoft: 'inset 0 1px 0 rgba(255,255,255,0.5)'
       },
       transitionTimingFunction: {
