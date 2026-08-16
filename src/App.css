@@ -63,9 +63,8 @@ body {
 
 /* Force headings and heavy-weight text to the display face for consistent branding */
 h1, h2, h3, h4, h5, h6, .font-black, .font-bold {
-  font-family: 'Syne', 'Space Grotesk', 'Playfair Display', serif !important;
-  /* Let headings inherit color from their context so titles on colored surfaces contrast correctly */
-  color: inherit;
+  font-family: 'Playfair Display', 'Space Grotesk', 'Syne', serif !important;
+  color: var(--heading-color) !important;
   margin: 0 0 .35rem 0;
   -webkit-font-smoothing: antialiased;
 }
@@ -88,7 +87,7 @@ h3 { font-size: 1rem; font-weight: 600; }
 }
 
 .card h1, .card h2, .card h3, .card h4, .card .font-black, .card .font-bold {
-  font-family: 'Syne', 'Space Grotesk', 'Playfair Display', serif !important;
+  font-family: 'Playfair Display', 'Space Grotesk', 'Syne', serif !important;
   color: var(--heading-color) !important;
 }
 
