@@ -124,20 +124,18 @@ const visibleMyths = translatedMyths.slice(0, visibleMythCount);
 return (
 <div className="space-y-6 pb-8">
 {/* Header */}
-<div className="bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-500 text-white rounded-3xl p-6 shadow-xl relative overflow-hidden">
-<div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16" />
-<div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12" />
+<div className="card p-6">
 <div className="relative z-10">
 <div className="flex items-center gap-2 mb-2">
-<Lightbulb className="w-6 h-6" />
-<h2 className="text-2xl font-black">{texts.dentalTips || "Dental Tips & Facts"}</h2>
+<Lightbulb className="w-6 h-6 text-accent" />
+<h2 className="text-2xl font-black text">{texts.dentalTips || "Dental Tips & Facts"}</h2>
 </div>
-<p className="text-sm opacity-90">{texts.expertAdvice || "Expert advice backed by science"}</p>
+<p className="text-sm muted">{texts.expertAdvice || "Expert advice backed by science"}</p>
 </div>
 </div>
 
   {/* Did You Know - Rotating Fact */}
-  <div className="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl p-5">
+  <div className="card p-5">
     <div className="flex items-start justify-between gap-3">
       <div className="flex items-start gap-3 flex-1">
         <div className="w-10 h-10 bg-amber-400 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -146,7 +144,7 @@ return (
         <div className="flex-1">
           <p className="font-bold text-amber-900 mb-1 text-sm">{texts.didYouKnow || "Did You Know?"}</p>
           <p
-            className="text-sm text-gray-700 leading-relaxed transition-opacity duration-300"
+            className="text-sm muted leading-relaxed transition-opacity duration-300"
             style={{ opacity: factAnimating ? 0 : 1 }}
           >
             {DID_YOU_KNOW[didYouKnowIndex]}
@@ -164,14 +162,14 @@ return (
   </div>
 
   {/* MYTH BUSTERS */}
-  <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-6 shadow-lg border-2 border-purple-200">
+  <div className="card p-6">
     <div className="flex items-center gap-2 mb-4">
-      <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+      <div className="w-10 h-10 bg-accent rounded-xl flex items-center justify-center">
         <Sparkles className="w-5 h-5 text-white" />
       </div>
       <div>
-        <h3 className="font-black text-gray-900">{texts.mythBusters || "Myth Busters"}</h3>
-        <p className="text-xs text-gray-600">{texts.testKnowledge || "Test your dental knowledge!"}</p>
+        <h3 className="font-black text">{texts.mythBusters || "Myth Busters"}</h3>
+        <p className="text-xs muted">{texts.testKnowledge || "Test your dental knowledge!"}</p>
       </div>
     </div>
 
@@ -185,18 +183,17 @@ return (
             className={`text-left p-4 rounded-2xl border-2 transition-all duration-300 ${
               isRevealed
                 ? item.isMyth
-                  ? "bg-red-50 border-red-300"
-                  : "bg-green-50 border-green-300"
-                : "bg-white border-purple-200 hover:border-purple-400 hover:shadow-md cursor-pointer"
-            }`}
-            disabled={isRevealed}
+                  ? "card border-red-300"
+                  : "card border-green-300"
+                : "card border-purple-200 hover:border-purple-400 hover:shadow-md cursor-pointer"
+            }`}            disabled={isRevealed}
           >
             <div className="flex items-start gap-3">
               <span className="text-2xl flex-shrink-0">{item.icon}</span>
               <div className="flex-1">
                 <p className="font-semibold text-gray-900 text-sm mb-2">{item.myth}</p>
                 {isRevealed ? (
-                  <div className={`flex items-start gap-2 p-3 rounded-xl ${item.isMyth ? "bg-red-100" : "bg-green-100"}`}>
+                <div className={`flex items-start gap-2 p-3 rounded-xl card ${item.isMyth ? "border-red-200" : "border-green-200"}`}>
                     {item.isMyth ? (
                       <XCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
                     ) : (
@@ -206,7 +203,7 @@ return (
                       <p className={`text-xs font-bold mb-1 ${item.isMyth ? "text-red-700" : "text-green-700"}`}>
                         {item.isMyth ? (texts.myth || "MYTH!") : (texts.true || "TRUE!")}
                       </p>
-                      <p className="text-xs text-gray-700">{item.truth}</p>
+                    <p className="text-xs muted">{item.truth}</p>
                     </div>
                   </div>
                 ) : (
@@ -235,14 +232,14 @@ return (
   </div>
 
   {/* Daily Pro Tip */}
-  <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-300 rounded-2xl p-5">
+  <div className="card p-5">
     <div className="flex items-start gap-3">
-      <div className="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
+      <div className="w-10 h-10 bg-accent rounded-xl flex items-center justify-center flex-shrink-0">
         <TrendingUp className="w-5 h-5 text-white" />
       </div>
       <div>
-        <p className="font-bold text-gray-900 mb-1">💡 {texts.proTip || "Pro Tip of the Day"}</p>
-        <p className="text-sm text-gray-700">
+        <p className="font-bold mb-1 text">💡 {texts.proTip || "Pro Tip of the Day"}</p>
+        <p className="text-sm muted">
           {texts.proTipText || "Brush your teeth at a 45-degree angle toward your gumline. This removes more plaque and prevents gum disease!"}
         </p>
       </div>
@@ -254,19 +251,19 @@ return (
     {TIPS.map((tip, index) => (
       <div
         key={tip.id}
-        className="group bg-white p-5 rounded-2xl shadow-md border border-blue-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-200"
+      className="group card p-5 rounded-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-200"
         style={{ animationDelay: `${index * 50}ms` }}
       >
         <div className="flex items-start gap-3 mb-3">
           <div className="text-3xl flex-shrink-0 group-hover:scale-110 transition-transform">{tip.icon}</div>
           <div className="flex-1">
-            <h3 className="font-bold text-gray-900 mb-1">{tip.title}</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">{tip.content}</p>
+          <h3 className="font-bold text mb-1">{tip.title}</h3>
+          <p className="text-sm muted leading-relaxed">{tip.content}</p>
           </div>
         </div>
         {tip.sourceLink && (
           <a href={tip.sourceLink} target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-700 font-medium mt-2">
+          className="inline-flex items-center gap-1 text-xs text-accent hover:text-accent-700 font-medium mt-2">
             <span>{texts.source || "Source"}: {tip.source}</span>
             <ExternalLink className="w-3 h-3" />
           </a>
@@ -276,14 +273,14 @@ return (
   </div>
 
   {/* Blog Section */}
-  <div className="bg-gradient-to-br from-slate-900 to-blue-950 rounded-3xl p-6 shadow-xl">
+  <div className="card p-6">
     <div className="flex items-center gap-2 mb-2">
-      <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
-        <Newspaper className="w-5 h-5 text-white" />
+      <div className="w-10 h-10 bg-muted rounded-xl flex items-center justify-center">
+        <Newspaper className="w-5 h-5 text-muted" />
       </div>
       <div>
-        <h3 className="font-black text-white">{texts.fromTheBlog || "From the Blog"}</h3>
-        <p className="text-xs text-blue-300">{texts.blogDesc || "Deep dives into dental health, technology, and the story behind SmileStreak."}</p>
+        <h3 className="font-black text">{texts.fromTheBlog || "From the Blog"}</h3>
+        <p className="text-xs muted">{texts.blogDesc || "Deep dives into dental health, technology, and the story behind SmileStreak."}</p>
       </div>
     </div>
 
@@ -294,10 +291,10 @@ return (
           href={article.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="block bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl p-4 transition-all group"
+          className="block card hover:shadow-lg rounded-2xl p-4 transition-all group"
         >
           <div className="flex items-start gap-3">
-            <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0 text-xl">
+            <div className="w-10 h-10 bg-muted rounded-xl flex items-center justify-center flex-shrink-0 text-xl">
               {article.emoji}
             </div>
             <div className="flex-1 min-w-0">
@@ -309,10 +306,10 @@ return (
                   {article.tag}
                 </span>
               </div>
-              <p className="font-bold text-white text-sm leading-snug mb-1">{article.title}</p>
-              <p className="text-xs text-blue-300 leading-relaxed line-clamp-2">{article.description}</p>
+              <p className="font-bold text text-sm leading-snug mb-1">{article.title}</p>
+              <p className="text-xs muted leading-relaxed line-clamp-2">{article.description}</p>
             </div>
-            <ChevronRight className="w-4 h-4 text-blue-400 group-hover:translate-x-1 transition-transform flex-shrink-0 mt-1" />
+            <ChevronRight className="w-4 h-4 text-muted group-hover:translate-x-1 transition-transform flex-shrink-0 mt-1" />
           </div>
         </a>
       ))}
@@ -322,7 +319,7 @@ return (
       href="https://medium.com/@eddiecherianj"
       target="_blank"
       rel="noopener noreferrer"
-      className="mt-4 w-full flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm font-semibold py-3 rounded-xl transition-colors"
+      className="mt-4 w-full flex items-center justify-center gap-2 card text-sm font-semibold py-3 rounded-xl transition-colors"
     >
       <span>View all articles on Medium</span>
       <ExternalLink className="w-4 h-4" />
@@ -330,10 +327,10 @@ return (
   </div>
 
   {/* Learn More Section */}
-  <div className="bg-white p-6 rounded-3xl shadow-lg border border-blue-100">
+  <div className="card p-6">
     <div className="flex items-center gap-2 mb-4">
-      <BookOpen className="w-5 h-5 text-blue-600" />
-      <h2 className="text-lg font-bold text-gray-900">{texts.learnMore || "Learn More"}</h2>
+      <BookOpen className="w-5 h-5 text-accent" />
+      <h2 className="text-lg font-bold text">{texts.learnMore || "Learn More"}</h2>
     </div>
     <div className="space-y-3">
       {[
@@ -342,23 +339,23 @@ return (
         { name: "WHO Oral Health", url: "https://www.who.int/news-room/fact-sheets/detail/oral-health", desc: texts.whoDesc || "Global oral health statistics" }
       ].map((link) => (
         <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer"
-          className="flex items-center justify-between p-3 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 transition-colors group">
+          className="flex items-center justify-between p-3 rounded-xl card transition-colors group">
           <div>
-            <p className="font-semibold text-gray-900 text-sm">{link.name}</p>
-            <p className="text-xs text-gray-600">{link.desc}</p>
+            <p className="font-semibold text text-sm">{link.name}</p>
+            <p className="text-xs muted">{link.desc}</p>
           </div>
-          <ExternalLink className="w-4 h-4 text-blue-600 group-hover:translate-x-1 transition-transform" />
+          <ExternalLink className="w-4 h-4 text-accent group-hover:translate-x-1 transition-transform" />
         </a>
       ))}
     </div>
   </div>
 
   {/* Disclaimer */}
-  <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-5">
+  <div className="card p-5">
     <div className="flex items-start gap-3">
       <AlertCircle className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
-      <div className="text-xs text-gray-700 leading-relaxed">
-        <strong className="text-gray-900">{texts.important || "Important"}:</strong>{" "}
+      <div className="text-xs muted leading-relaxed">
+        <strong className="text">{texts.important || "Important"}:</strong>{" "}
         {texts.disclaimer || "These tips are for prevention and education only, based on published dental research. This app does not provide medical diagnosis or treatment recommendations. Always consult with a licensed dental professional for personalized advice, treatment, or if you have concerns about your oral health."}
       </div>
     </div>
