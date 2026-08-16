@@ -206,10 +206,10 @@ export default function Legal() {
   if (translating || Object.keys(translatedText).length === 0) {
     return (
       <div className="space-y-6 pb-10">
-        <div className="bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-500 text-white rounded-3xl p-6 shadow-xl">
+        <div className="card p-6">
           <div className="animate-pulse flex items-center gap-2">
-            <Shield className="w-6 h-6" />
-            <h2 className="text-2xl font-black">Loading...</h2>
+            <Shield className="w-6 h-6 text-accent" />
+            <h2 className="text-2xl font-black text">Loading...</h2>
           </div>
         </div>
       </div>
