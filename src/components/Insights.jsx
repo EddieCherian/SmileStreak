@@ -70,23 +70,20 @@ export default function Insights({ habitData }) {
   if (!habitData || Object.keys(habitData).length === 0) {
     return (
       <div className="space-y-6 pb-8">
-        <div className="bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-500 text-white rounded-3xl p-6 shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16" />
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-12 -translate-x-12" />
-          
+        <div className="card p-6">
           <div className="relative z-10">
             <div className="flex items-center gap-2 mb-2">
-              <Brain className="w-6 h-6" />
-              <h2 className="text-2xl font-black">{translatedText.title || translationKeys.title}</h2>
+              <Brain className="w-6 h-6 text-accent" />
+              <h2 className="text-2xl font-black text">{translatedText.title || translationKeys.title}</h2>
             </div>
-            <p className="text-sm opacity-90">{translatedText.subtitle || translationKeys.subtitle}</p>
+            <p className="text-sm muted">{translatedText.subtitle || translationKeys.subtitle}</p>
           </div>
         </div>
         
-        <div className="bg-white rounded-3xl p-8 shadow-lg border border-blue-100 text-center">
-          <Calendar className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <h3 className="text-xl font-bold text-gray-900 mb-2">{translatedText.noDataTitle || translationKeys.noDataTitle}</h3>
-          <p className="text-sm text-gray-600">
+        <div className="card p-8 text-center">
+          <Calendar className="w-16 h-16 text-muted mx-auto mb-4" />
+          <h3 className="text-xl font-bold text mb-2">{translatedText.noDataTitle || translationKeys.noDataTitle}</h3>
+          <p className="text-sm muted">
             {translatedText.noDataDesc || translationKeys.noDataDesc}
           </p>
         </div>
@@ -435,29 +432,29 @@ export default function Insights({ habitData }) {
             <div className="flex justify-between items-center mb-2">
               <div className="flex items-center gap-2">
                 <Moon className="w-5 h-5 text-indigo-500" />
-                <span className="font-semibold text-gray-900">{translatedText.night}</span>
+                <span className="font-semibold text">{translatedText.night}</span>
               </div>
-              <span className="font-bold text-gray-900">{timePatterns.nightRate}%</span>
+              <span className="font-bold text">{timePatterns.nightRate}%</span>
             </div>
             <div className="relative w-full h-3 bg-gray-100 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-indigo-400 to-indigo-500"
+                className="h-full bg-accent"
                 style={{ width: `${timePatterns.nightRate}%` }}
               />
             </div>
           </div>
-
+ 
           <div>
             <div className="flex justify-between items-center mb-2">
               <div className="flex items-center gap-2">
-                <Activity className="w-5 h-5 text-cyan-500" />
-                <span className="font-semibold text-gray-900">Floss</span>
+                <Activity className="w-5 h-5 text-accent" />
+                <span className="font-semibold text">Floss</span>
               </div>
-              <span className="font-bold text-gray-900">{timePatterns.flossRate}%</span>
+              <span className="font-bold text">{timePatterns.flossRate}%</span>
             </div>
             <div className="relative w-full h-3 bg-gray-100 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-cyan-400 to-cyan-500"
+                className="h-full bg-accent"
                 style={{ width: `${timePatterns.flossRate}%` }}
               />
             </div>
@@ -467,27 +464,27 @@ export default function Insights({ habitData }) {
 
       {/* Patterns */}
       {(insights.mostMissedTask || insights.mostMissedDay) && (
-        <div className="bg-white rounded-3xl p-6 shadow-lg border border-blue-100">
-          <h3 className="font-black text-gray-900 mb-4">{translatedText.detectedPatterns}</h3>
+        <div className="card p-6">
+          <h3 className="font-black text mb-4">{translatedText.detectedPatterns}</h3>
           <div className="space-y-3">
             {insights.mostMissedTask && (
-              <div className="flex items-start gap-3 p-4 bg-orange-50 rounded-2xl">
+              <div className="flex items-start gap-3 p-4 card rounded-2xl">
                 <AlertCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-gray-900 text-sm mb-1">{translatedText.mostMissedTask}</p>
-                  <p className="text-sm text-gray-700">
+                  <p className="font-semibold text text-sm mb-1">{translatedText.mostMissedTask}</p>
+                  <p className="text-sm muted">
                     {insights.mostMissedTask} is your most commonly skipped task
                   </p>
                 </div>
               </div>
             )}
-            
+             
             {insights.mostMissedDay && (
-              <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-2xl">
-                <Clock className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 p-4 card rounded-2xl">
+                <Clock className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-gray-900 text-sm mb-1">{translatedText.challengingDay}</p>
-                  <p className="text-sm text-gray-700">
+                  <p className="font-semibold text text-sm mb-1">{translatedText.challengingDay}</p>
+                  <p className="text-sm muted">
                     {insights.mostMissedDay}s are when you're most likely to miss tasks
                   </p>
                 </div>
@@ -496,7 +493,7 @@ export default function Insights({ habitData }) {
           </div>
 
           {insights.confidence && !insights.confidence.patternsReliable && (
-            <p className="mt-4 text-xs text-gray-500 text-center">
+            <p className="mt-4 text-xs muted text-center">
               {(translatedText.patternDetectionNote || translationKeys.patternDetectionNote)
                 .replace('{days}', insights.confidence?.minDaysForPatterns || 14)}
             </p>
@@ -506,21 +503,21 @@ export default function Insights({ habitData }) {
 
       {/* Summary Insight */}
       {insights.summaryInsight && (
-        <div className="bg-gradient-to-r from-cyan-50 to-blue-50 border-2 border-cyan-200 rounded-2xl p-5">
+        <div className="card p-5">
           <div className="flex items-start gap-3">
-            <Heart className="w-5 h-5 text-cyan-600 flex-shrink-0 mt-0.5" />
+            <Heart className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold text-gray-900 text-sm mb-1">{translatedText.overview}</p>
-              <p className="text-sm text-gray-700">{insights.summaryInsight}</p>
+              <p className="font-bold text-sm mb-1 text">{translatedText.overview}</p>
+              <p className="text-sm muted">{insights.summaryInsight}</p>
             </div>
           </div>
         </div>
       )}
 
       {/* Motivation */}
-      <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-5 text-center">
-        <Sparkles className="w-8 h-8 text-green-600 mx-auto mb-2" />
-        <p className="text-sm text-gray-700 font-medium">
+      <div className="card p-5 text-center">
+        <Sparkles className="w-8 h-8 text-accent mx-auto mb-2" />
+        <p className="text-sm text-muted font-medium">
           {healthScore.total >= 80 ? (translatedText.motivationExcellent || translationKeys.motivationExcellent) :
            healthScore.total >= 60 ? (translatedText.motivationGood || translationKeys.motivationGood) :
            (translatedText.motivationNeedsWork || translationKeys.motivationNeedsWork)}
@@ -536,10 +533,10 @@ export default function Insights({ habitData }) {
               text: `I have a health score of ${healthScore.total}%!`
             });
           }}
-          className="flex flex-col items-center gap-1 p-3 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors"
+          className="flex flex-col items-center gap-1 p-3 card rounded-xl"
         >
-          <Share2 className="w-5 h-5 text-blue-600" />
-          <span className="text-xs text-gray-600">Share</span>
+          <Share2 className="w-5 h-5 text-accent" />
+          <span className="text-xs muted">Share</span>
         </button>
 
         <button
@@ -556,18 +553,18 @@ export default function Insights({ habitData }) {
             a.download = `smile-streak-insights-${new Date().toISOString().split('T')[0]}.json`;
             a.click();
           }}
-          className="flex flex-col items-center gap-1 p-3 bg-green-50 rounded-xl hover:bg-green-100 transition-colors"
+          className="flex flex-col items-center gap-1 p-3 card rounded-xl"
         >
-          <Download className="w-5 h-5 text-green-600" />
-          <span className="text-xs text-gray-600">Export</span>
+          <Download className="w-5 h-5 text-accent" />
+          <span className="text-xs muted">Export</span>
         </button>
 
         <button
           onClick={() => window.print()}
-          className="flex flex-col items-center gap-1 p-3 bg-purple-50 rounded-xl hover:bg-purple-100 transition-colors"
+          className="flex flex-col items-center gap-1 p-3 card rounded-xl"
         >
-          <Printer className="w-5 h-5 text-purple-600" />
-          <span className="text-xs text-gray-600">Print</span>
+          <Printer className="w-5 h-5 text-accent" />
+          <span className="text-xs muted">Print</span>
         </button>
       </div>
     </div>
