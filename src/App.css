@@ -222,6 +222,20 @@ html.dark .card { background: #0f1113; color: var(--text-dark); border: 1px soli
 /* Defensive: remove inline linear gradients where present and prefer semantic tokens */
 [style*="linear-gradient"] { background-image: none !important; }
 
+/* Map common gradient "from/to/via" utility classes to solid semantic tokens */
+.from-blue-600, .from-blue-500, .from-blue-400, .to-blue-600, .to-blue-500, .to-blue-400, .via-blue-500, .via-cyan-500, .from-cyan-500, .to-cyan-500 {
+  background-color: var(--accent) !important;
+}
+.from-green-400, .from-green-500, .to-green-500, .to-green-400 {
+  background-color: var(--success) !important;
+}
+.from-red-500, .to-red-500, .from-red-400, .to-red-400 {
+  background-color: var(--danger) !important;
+}
+.from-purple-400, .to-purple-400, .from-purple-500, .to-purple-500 {
+  background-color: #7c3aed !important;
+}
+
 /* Allow explicit accent classes to appear even when gradients are stripped */
 .btn-accent, .bg-accent { background-image: none !important; color: var(--text-inverse) !important; }
 
