@@ -4,21 +4,21 @@ export default function TaskRow({ title, description, completed, onToggle }) {
   return (
     <button
       onClick={onToggle}
-      className={`w-full flex items-center gap-4 p-4 rounded-xl border transition-all
+      className={`w-full flex items-center gap-4 p-4 rounded-xl border transition-all card focus:outline-none focus:ring-2 focus:ring-accent/20
         ${completed
-          ? "bg-green-50 border-green-200"
-          : "bg-white border-gray-200 hover:bg-gray-50"
+          ? "opacity-90"
+          : ""
         }`}
     >
       {completed ? (
-        <CheckCircle className="w-7 h-7 text-green-500" />
+        <CheckCircle className="w-7 h-7 text-accent" />
       ) : (
-        <Circle className="w-7 h-7 text-gray-300" />
+        <Circle className="w-7 h-7 text-muted" />
       )}
 
       <div className="flex-1 text-left">
-        <p className="font-semibold text-gray-800">{title}</p>
-        <p className="text-sm text-gray-500">{description}</p>
+        <p className="font-semibold text">{title}</p>
+        <p className="text-sm muted">{description}</p>
       </div>
     </button>
   );
